@@ -8,7 +8,7 @@ import (
 )
 
 var addidentityCmd = &cobra.Command{
-	Use:   "addidentity <name>",
+	Use:   "addidentity <identity>",
 	Short: "Add your Cloudflare token and zone id to start managing your emails",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {

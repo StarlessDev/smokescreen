@@ -28,8 +28,8 @@ var listCmd = &cobra.Command{
 			emails := list.Result
 			fmt.Printf("Found %d emails:", len(emails))
 			for _, email := range emails {
-				emailName := email.Name
-				if !strings.HasPrefix(emailName, cloudflare.EmailNamePrefix) {
+				emailName, found := strings.CutPrefix(email.Name, cloudflare.EmailNamePrefix)
+				if !found {
 					continue
 				}
 				matchers := email.Matchers
@@ -37,8 +37,7 @@ var listCmd = &cobra.Command{
 					continue
 				}
 
-				realName, _ := strings.CutPrefix(emailName, cloudflare.EmailNamePrefix)
-				fmt.Printf("\n- %s: %s (enabled: %v)", realName, matchers[0].Value, email.Enabled)
+				fmt.Printf("\n- %s: %s (enabled: %v)", emailName, matchers[0].Value, email.Enabled)
 			}
 		} else {
 			fmt.Printf("Cloudflare returned an error: %v", list.Errors)

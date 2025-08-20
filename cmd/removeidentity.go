@@ -8,7 +8,7 @@ import (
 
 // removeidentityCmd represents the removeidentity command
 var removeidentityCmd = &cobra.Command{
-	Use:   "removeidentity <name>",
+	Use:   "removeidentity <identity>",
 	Short: "Remove a previously added identity",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
