@@ -45,8 +45,8 @@ type EmailMatcher struct {
 // The Id and Tag fields are populated only
 // when this struct is in an API response.
 type Email struct {
-	Id       string         `json:"id"`
-	Tag      string         `json:"tag"`
+	Id       string         `json:"id,omitempty"`
+	Tag      string         `json:"tag,omitempty"`
 	Name     string         `json:"name"`
 	Enabled  bool           `json:"enabled"`
 	Priority int            `json:"priority"`
