@@ -2,12 +2,12 @@
 A simple CLI utility to manage Cloudflare email address routing written in go.
 
 ## Why?
-When I bought my domain I figured out that you could use Cloudflare's email routing feature to generate **temporary email addresses**. This way, if your email gets into the hands of advertisers, you can just revoke the address and avoid your inbox from being spammed.
+When I bought my domain I figured out that you could use Cloudflare's email routing feature to generate **temporary email addresses** and route the incoming emails to a real email address. This way, if your email gets into the hands of advertisers, you can just **revoke** the address and **prevent your inbox from being spammed**.
 
 *aaaand I have started learning go recently, so I wanted to create a small project to get used to the language (the first version of smokescreen was written in Java)*
 
 ## Download
-All the releases are compiled for linux. 
+All the releases are compiled for **linux**. 
 1. Download the latest stable release from the [Releases section](https://github.com/StarlessDev/smokescreen/releases/latest) or from Github actions
 2. Make the binary executable
 3. (Optional) Add the binary directory to your `$PATH` environment variable to use it from anywhere. 
@@ -46,7 +46,8 @@ Available Commands:
   list           List the emails you created
   removeidentity Remove a previously added identity
   revoke         Revoke a generated email. This will completely delete the address!
-                                                                                                                                                            Flags:
+
+Flags:
   -h, --help   help for smokescreen
 
 Use "smokescreen [command] --help" for more information about a command.
