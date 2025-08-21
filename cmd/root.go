@@ -24,15 +24,16 @@ func NewAppContext() (*AppContext, error) {
 }
 
 // Global app context instance
-var appCtx *AppContext
+var AppCtx *AppContext
+var (
+	Version = "dev"
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "smokescreen",
-	Short: "CLI utility to manage email aliases using Cloudflare's email routing feature.",
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//Run: func(cmd *cobra.Command, args []string) {},
+	Use:     "smokescreen",
+	Short:   "CLI utility to manage email aliases using Cloudflare's email routing feature.",
+	Version: Version,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -40,7 +41,7 @@ var rootCmd = &cobra.Command{
 func Execute() {
 	// Initialize application context
 	var err error
-	appCtx, err = NewAppContext()
+	AppCtx, err = NewAppContext()
 	if err != nil {
 		panic("Could not read your identities")
 	}
@@ -53,7 +54,7 @@ func Execute() {
 
 // GetAppContext returns the global application context
 func GetAppContext() *AppContext {
-	return appCtx
+	return AppCtx
 }
 
 func init() {
