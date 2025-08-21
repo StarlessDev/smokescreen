@@ -16,16 +16,32 @@ var addidentityCmd = &cobra.Command{
 		var token, zoneId, domain, email string
 
 		fmt.Print("Insert your API Token: ")
-		fmt.Scanln(&token)
+		_, err := fmt.Scanln(&token)
+		if err != nil {
+			fmt.Printf("Could not get user input: %v", err)
+			return
+		}
 
 		fmt.Print("Insert your zone ID: ")
-		fmt.Scanln(&zoneId)
+		_, err = fmt.Scanln(&zoneId)
+		if err != nil {
+			fmt.Printf("Could not get user input: %v", err)
+			return
+		}
 
 		fmt.Print("Insert your domain: ")
-		fmt.Scanln(&domain)
+		_, err = fmt.Scanln(&domain)
+		if err != nil {
+			fmt.Printf("Could not get user input: %v", err)
+			return
+		}
 
 		fmt.Print("Where do you want the emails to be redirected: ")
-		fmt.Scanln(&email)
+		_, err = fmt.Scanln(&email)
+		if err != nil {
+			fmt.Printf("Could not get user input: %v", err)
+			return
+		}
 
 		identities := GetAppContext().Identities
 		identities.Add(&cloudflare.Identity{
